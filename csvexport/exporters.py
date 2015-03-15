@@ -9,7 +9,7 @@ make custom exports or just it as it is.
 
 Simple usage:
 
-    from csvexport.exports import ModelCSVExporter
+    from csvexport.exports import ModelExporter
 
     records = Record.objects.all()[:5]
     exp = ModelExporter(queryset=records)

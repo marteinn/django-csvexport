@@ -77,4 +77,4 @@ Want to contribute? Awesome. Just send a pull request.
 
 ## License
 
-AtomicPress is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+Django-CSVExport is released under the [MIT License](http://www.opensource.org/licenses/MIT).

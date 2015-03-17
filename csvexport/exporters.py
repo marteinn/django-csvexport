@@ -6,38 +6,42 @@ csvexport.exporters
 -------------------------
 This module contains the basic exporter, you can either extend upon it to
 make custom exports or just it as it is.
-
-Simple usage:
-
-    from csvexport.exports import ModelExporter
-
-    records = Record.objects.all()[:5]
-    exp = ModelExporter(queryset=records)
-    f = exp.to_string()
-
-
-...With specified fields
-
-    from csvexport.exports import ModelCSVExporter
-
-    class RecordExporter(ModelCSVExporter):
-        class Meta:
-            fields = ["album", "slug"]
-            exclude = []
-
-
-    records = Record.objects.all()[:5]
-    exp = RecordExporter(queryset=records)
-    f = exp.to_string()
-
 """
 
 import csv
-# TODO: Add python3 support
-from StringIO import StringIO
+try:
+    from StringIO import StringIO   # Python 2.x
+except ImportError:
+    from io import StringIO         # Python 3.x
 
 
-class ModelExporter():
+class ModelExporter(object):
+    """
+    Simple usage:
+
+        from csvexport.exports import ModelExporter
+
+        records = Record.objects.all()[:5]
+        exp = ModelExporter(queryset=records)
+        f = exp.to_string()
+
+
+    ...With specified fields
+
+        from csvexport.exports import ModelCSVExporter
+
+        class RecordExporter(ModelCSVExporter):
+            class Meta:
+                fields = ["album", "slug"]
+                exclude = []
+
+
+        records = Record.objects.all()[:5]
+        exp = RecordExporter(queryset=records)
+        f = exp.to_string()
+
+    """
+
     queryset = None
     fields = None
 
@@ -117,7 +121,7 @@ class ModelExporter():
             if field is None:
                 field = ""
 
-            entry_dict[key] = str(field)
+            entry_dict[key] = field
 
         return entry_dict
 

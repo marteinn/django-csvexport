@@ -18,12 +18,14 @@ packages = find_packages()
 with open('README.md') as f:
     readme = f.read()
 
-requires = parse_requirements("requirements.txt")
+requires = parse_requirements("requirements/install.txt")
 install_requires = [str(ir.req) for ir in requires]
 
+requires = parse_requirements("requirements/tests.txt")
+tests_require = [str(ir.req) for ir in requires]
 
 long_description = """
-This is a django extension that simplifies model to csv conversions.
+Simple csv to model parsing for Django.
 
 ---
 
@@ -35,8 +37,7 @@ This is a django extension that simplifies model to csv conversions.
 setup(
     name="django-csvexport",
     version=csvexport.__version__,
-    description=("This is a django extension that simplifies model to csv "
-        "conversions."),
+    description=("Simple csv to model parsing for Django."),
     long_description=long_description,
     author="Martin Sandström",
     author_email="martin@marteinn.se",
@@ -44,6 +45,7 @@ setup(
     packages=packages,
     include_package_data=True,
     install_requires=install_requires,
+    tests_require=tests_require,
     license="MIT",
     zip_safe=False,
     classifiers=(
@@ -51,10 +53,12 @@ setup(
         'Environment :: Web Environment',
         "Intended Audience :: Developers",
         "Natural Language :: English",
+        'Intended Audience :: Developers',
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         'Programming Language :: Python :: 2',
         "Programming Language :: Python :: 2.7",
         'Framework :: Django',
+        'Topic :: Utilities',
     ),
 )

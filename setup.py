@@ -13,8 +13,6 @@ if sys.argv[-1] == "publish":
     sys.exit()
 
 
-packages = find_packages()
-
 with open('README.md') as f:
     readme = f.read()
 
@@ -42,7 +40,7 @@ setup(
     author="Martin Sandström",
     author_email="martin@marteinn.se",
     url="https://github.com/marteinn/django-csvexport",
-    packages=packages,
+    packages=find_packages(exclude=('tests*',)),
     include_package_data=True,
     install_requires=install_requires,
     tests_require=tests_require,

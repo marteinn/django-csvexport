@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/marteinn/django-csvexport.svg?branch=master)](https://travis-ci.org/marteinn/django-csvexport)
+
 # Django-CSVExport
 
 This is a django extension that simplifies model to csv conversions.

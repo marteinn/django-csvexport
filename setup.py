@@ -12,25 +12,19 @@ if sys.argv[-1] == "publish":
     os.system("python setup.py sdist upload")
     sys.exit()
 
-
-with open('README.md') as f:
-    readme = f.read()
-
+# Handle requirements
 requires = parse_requirements("requirements/install.txt")
 install_requires = [str(ir.req) for ir in requires]
 
 requires = parse_requirements("requirements/tests.txt")
 tests_require = [str(ir.req) for ir in requires]
 
-long_description = """
-Simple csv to model parsing for Django.
-
----
-
-%s
-
-""" % readme
-
+# Convert markdown to rst
+try:
+    from pypandoc import convert
+    long_description = convert('README.md', 'rst')
+except ImportError:
+    long_description = open('README.md').read()
 
 setup(
     name="django-csvexport",

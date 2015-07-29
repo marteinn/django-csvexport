@@ -7,7 +7,7 @@ This is a django extension that simplifies model to csv conversions.
 
 ## Requirements
 - Python 2.7
-- Django 1.7+
+- Django 1.6+
 
 
 ## Example:

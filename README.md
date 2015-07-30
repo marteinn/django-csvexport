@@ -14,6 +14,8 @@ This is a django extension that simplifies model to csv conversions.
 
 ### Simple usage:
 
+Generate csv string from a model:
+
 ```python
 from csvexport.exports import ModelCSVExporter
 
@@ -23,6 +25,8 @@ f = exp.to_string()
 ```
 
 ### With specified fields
+
+Same as the previous example, but only expose certain fields:
 
 ```python
 from csvexport.exports import ModelCSVExporter
@@ -38,8 +42,30 @@ exp = RecordExporter(queryset=records)
 f = exp.to_string()
 ```
 
+### Generating a csv from a view:
 
-### With custom hydration:
+This is a example how you could generate a downloadable csv by requesting a view, using the `render_to_csv` helper.
+
+**urls.py**
+
+```python
+url(r'^csv/$', 'app.views.gen_csv'),
+```
+
+**views.py**
+
+```python
+def gen_csv(request):
+    from csvexport.exporters import ModelExporter
+    from csvexport.utils import render_to_csv
+    records = Record.objects.all()
+    exp = ModelExporter(queryset=records)
+    return render_to_csv(exp)
+```
+
+### With custom hydration
+
+It is also possible to create a custom csv object:
 
 ```python
 class RecordExporter(ModelExporter):
@@ -70,6 +96,20 @@ exp = RecordExporter(queryset=records)
 f = exp.to_string()
 
 ```
+
+
+## Installation
+
+Genres can easily be installed through pip.
+
+    $ pip install django-csvexport
+
+
+## Tests
+
+This library include tests, just run `python runtests.py`.
+
+You can also run separate test cases: `runtests.py tests.ViewTestCase`
 
 
 ## Contributing

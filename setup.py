@@ -29,7 +29,7 @@ except ImportError:
 setup(
     name="django-csvexport",
     version=csvexport.__version__,
-    description=("Simple csv to model parsing for Django."),
+    description=("Simple model to csv conversions for Django."),
     long_description=long_description,
     author="Martin Sandström",
     author_email="martin@marteinn.se",

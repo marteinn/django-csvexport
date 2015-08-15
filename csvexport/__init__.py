@@ -10,8 +10,8 @@ A django extension that simplifies model to csv conversions.
 
 
 __title__ = "csvexport"
-__version__ = "1.0.5"
-__build__ = 105
+__version__ = "1.1.0"
+__build__ = 110
 __author__ = "Martin Sandström"
 __license__ = "MIT"
 __copyright__ = "Copyright 2015 Martin Sandström"

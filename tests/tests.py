@@ -3,6 +3,7 @@ try:
     from StringIO import StringIO
 except ImportError:
     from io import StringIO
+
 from django.test import TestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
@@ -67,7 +68,9 @@ class ViewTestCase(TestCase):
         c = Client()
         r = c.get(path)
         self.assertEquals(r.status_code, 200)
-        result_dict = csv_to_dict(StringIO(r.content))
+
+        content = r.content.decode("utf-8")
+        result_dict = csv_to_dict(StringIO(content))
 
         self.assertFalse("id" in result_dict[0])
 

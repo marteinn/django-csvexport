@@ -130,7 +130,8 @@ class ModelExporter(object):
 
         return entry_dict
 
-    def encode_entry(self, dict_data):
+    @staticmethod
+    def encode_entry(dict_data):
         """
         Makes sure all items in dict are encode safe (since csv writer does
         not offer that)

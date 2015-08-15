@@ -6,6 +6,7 @@ import sys
 
 from setuptools import setup, find_packages
 from pip.req import parse_requirements
+from pypandoc import convert
 import csvexport
 
 if sys.argv[-1] == "publish":
@@ -20,11 +21,8 @@ requires = parse_requirements("requirements/tests.txt")
 tests_require = [str(ir.req) for ir in requires]
 
 # Convert markdown to rst
-try:
-    from pypandoc import convert
-    long_description = convert('README.md', 'rst')
-except ImportError:
-    long_description = open('README.md').read()
+long_description = convert('README.md', 'rst')
+
 
 setup(
     name="django-csvexport",
@@ -50,6 +48,9 @@ setup(
         "Programming Language :: Python",
         'Programming Language :: Python :: 2',
         "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.2",
+        "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.4"
         'Framework :: Django',
         'Topic :: Utilities',
     ),

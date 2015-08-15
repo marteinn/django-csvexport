@@ -21,7 +21,8 @@ class RecordDynamicExporter(ModelExporter):
     class Meta:
         fields = ["alt_title"]
 
-    def hydrate_entry(self, entry):
+    @staticmethod
+    def hydrate_entry(entry):
         dict_entry = {}
         dict_entry["alt_title"] = entry.title
         return dict_entry

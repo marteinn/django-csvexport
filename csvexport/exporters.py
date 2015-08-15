@@ -14,6 +14,11 @@ try:
 except ImportError:
     from io import StringIO         # Python 3.x
 
+try:
+    basestring
+except NameError:
+    basestring = str
+
 
 class ModelExporter(object):
     """
@@ -132,7 +137,7 @@ class ModelExporter(object):
         """
 
         formatted_data = {}
-        for key, value in dict_data.iteritems():
+        for key, value in dict_data.items():
             value = value if value else ""
             if isinstance(value, basestring):
                 value = value.encode("utf-8")

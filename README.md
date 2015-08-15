@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/marteinn/django-csvexport.svg?branch=master)](https://travis-ci.org/marteinn/django-csvexport)
+[![PyPI version](https://badge.fury.io/py/django-csvexport.svg)](http://badge.fury.io/py/django-csvexport)
 
 # Django-CSVExport
 

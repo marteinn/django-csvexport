@@ -7,8 +7,8 @@ This is a django extension that simplifies model to csv conversions.
 
 
 ## Requirements
-- Python 2.7 / 3.2+
-- Django 1.6+
+- Python 2.7 / 3.3+
+- Django 1.8+
 
 
 ## Example:
@@ -101,7 +101,7 @@ f = exp.to_string()
 
 ## Installation
 
-Genres can easily be installed through pip.
+django-csvexport can easily be installed through pip.
 
     $ pip install django-csvexport
 

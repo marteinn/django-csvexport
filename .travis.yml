@@ -1,14 +1,32 @@
+sudo: false
 language: python
 env:
- - DJANGO_VERSION=1.6.11
- - DJANGO_VERSION=1.7.9
- - DJANGO_VERSION=1.8.3
+  matrix:
+   - DJANGO="Django<1.9"
+   - DJANGO="Django<1.10"
+   - DJANGO="Django<1.11"
+   - DJANGO="Django<1.12"
 python:
  - "2.7"
- - "3.2"
  - "3.3"
  - "3.4"
+ - "3.5"
+ - "3.6"
+matrix:
+  exclude:
+    - python: "3.3"
+      env: DJANGO="Django<1.10"
+    - python: "3.3"
+      env: DJANGO="Django<1.11"
+    - python: "3.3"
+      env: DJANGO="Django<1.12"
+    - python: "3.6"
+      env: DJANGO="Django<1.8"
+    - python: "3.6"
+      env: DJANGO="Django<1.9"
+    - python: "3.6"
+      env: DJANGO="Django<1.10"
 install:
- - pip install -q Django==$DJANGO_VERSION
+ - pip install "$DJANGO"
 script:
  - python runtests.py

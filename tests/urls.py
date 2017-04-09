@@ -1,7 +1,8 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
+
 from .views import csv_view
 
 
-urlpatterns = patterns("",
+urlpatterns = [
     url(r"^test/csv_view", csv_view, name="csv_view"),
-)
+]

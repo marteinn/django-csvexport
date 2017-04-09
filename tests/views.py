@@ -1,4 +1,5 @@
 from csvexport.shortcuts import render_to_csv
+
 from .exporters import (
     RecordExcludeIdExporter,
 )
@@ -10,4 +11,3 @@ def csv_view(request, *args, **kwargs):
     exporter = RecordExcludeIdExporter(queryset=records)
 
     return render_to_csv(exporter)
-

@@ -2,7 +2,6 @@ sudo: false
 language: python
 env:
   matrix:
-   - DJANGO="Django<1.8"
    - DJANGO="Django<1.9"
    - DJANGO="Django<1.10"
    - DJANGO="Django<1.11"

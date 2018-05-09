@@ -38,21 +38,21 @@ setup(
     ],
     license="MIT",
     zip_safe=False,
-    classifiers=(
+    classifiers=[
         "Development Status :: 5 - Production/Stable",
-        'Environment :: Web Environment',
+        "Environment :: Web Environment",
         "Intended Audience :: Developers",
         "Natural Language :: English",
-        'Intended Audience :: Developers',
+        "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
-        'Programming Language :: Python :: 2',
+        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.2",
         "Programming Language :: Python :: 3.3",
         "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
-        'Framework :: Django',
-        'Topic :: Utilities',
-    ),
+        "Framework :: Django",
+        "Topic :: Utilities"
+    ]
 )

@@ -3,25 +3,14 @@
 
 import os
 import sys
-import pip
 
 from setuptools import setup, find_packages
-from pip.req import parse_requirements
 import csvexport
 
 
 if sys.argv[-1] == "publish":
     os.system("python setup.py sdist upload")
     sys.exit()
-
-# Handle requirements
-requires = parse_requirements("requirements/install.txt",
-                              session=pip.download.PipSession())
-install_requires = [str(ir.req) for ir in requires]
-
-requires = parse_requirements("requirements/tests.txt",
-                              session=pip.download.PipSession())
-tests_require = [str(ir.req) for ir in requires]
 
 # Convert markdown to rst
 try:
@@ -41,8 +30,12 @@ setup(
     url="https://github.com/marteinn/django-csvexport",
     packages=find_packages(exclude=('tests*',)),
     include_package_data=True,
-    install_requires=install_requires,
-    tests_require=tests_require,
+    install_requires=[
+        'Django>=1.8',
+    ],
+    tests_require=[
+        'Django>=1.6',
+    ],
     license="MIT",
     zip_safe=False,
     classifiers=(
